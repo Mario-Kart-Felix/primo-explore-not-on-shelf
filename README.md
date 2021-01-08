@@ -91,3 +91,25 @@ app.value('nosOptions',[{
 1. Clone the repo
 2. Run `npm install`
 3. Run `npm test` -->
+3
+
+
+I have an object with some properties which are String objects:
+
+var obj = {
+    foo: new String("bar")
+};
+I am using String objects because I am needing to store additional sub-properties on the object while still being able to get the string value:
+
+obj.foo.baz = "baz";
+"" + obj.foo; //-> "bar";
+I feel dumb for asking, but how can I update the value of a String object? Seems like some Array splice magic might need to be applied.
+
+EDIT: Just to be clear, I understand string primitives in JS and immutability therein. This is an object I'm talking about. Here is the test that needs to pass:
+
+assert.equal("" + obj.foo, "foo"); //-> true
+assert.equal(obj.foo.baz, "baz"); //-> true
+
+extend(obj, { foo: "foooooo" });
+assert.equal("" + obj.foo, "foooooo"); //-> true
+assert.equal(obj.foo.baz, "baz"); //-> true
