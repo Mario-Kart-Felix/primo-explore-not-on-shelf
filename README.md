@@ -94,7 +94,7 @@ app.value('nosOptions',[{
 3
 
 
-I have an object with some properties which are String objects:
+
 
 var obj = {
     foo: new String("bar")
